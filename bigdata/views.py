@@ -1,10 +1,8 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("Welcome to Dashboard")
+    return render(request,'index.html')
 
 def about(request):
-    judul = "<h1>About</h1>"
-    subjudul = "<p> My Name is Razak</P>"
-    output = judul+subjudul
-    return HttpResponse(output)
+    return render(request,'about.html')
