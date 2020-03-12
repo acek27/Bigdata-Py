@@ -8,8 +8,10 @@
 <h1>Selamat Datang di BIGDATA Kabupaten Situbondo</h1>
 <p>build use Django Framework</p>
 <ul>
-    <li><a href="/about">About</a></li>
-    <li><a href="/dashboard">Dashboard</a></li>
+    {% for link,name in nav %}
+    <li><a href="{{ link }}">{{ name }}</a></li>
+    {% endfor %}
+    
 </ul>
 </body>
 </html>
