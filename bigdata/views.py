@@ -2,12 +2,13 @@ from django.shortcuts import render
 
 def index(request):
     context = {
-        'judul': 'Index',
+        'judul': 'Dashboard',
         'header': 'Selamat Datang di Index BIGDATA Kabupaten Situbondo',
+        'banner': 'img/home.jpg',
         'nav' : [
             ['/','Home'],
             ['/dashboard','Dashboard'],
-            ['/about','About']
+            ['/about','About'],
         ]
     }
     return render(request,'index.html',context)
