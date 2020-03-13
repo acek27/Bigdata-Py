@@ -16,7 +16,12 @@
 
 {% block content %}
     <h1>{{ header }}</h1>
-    <p>build use Django Framework</p>
+    {% for post in Post %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.body }}</p>
+        <p>{{ post.waktu_posting }}</p>
+    {% endfor %}
+
     <ul>
         <li><a href="/">Index</a></li>
     </ul>
