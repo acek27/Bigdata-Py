@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('about/', views.about, name="about"),
-    path('dashboard/', include('dashboard.urls')),
+    path('dashboard/', include('dashboard.urls', namespace="dashboard")),
 ]
