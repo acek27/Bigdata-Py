@@ -14,4 +14,14 @@ def index(request):
     return render(request,'index.html',context)
 
 def about(request):
-    return render(request,'about.html')
+    context = {
+        'judul': 'About',
+        'header': 'Selamat Datang di About BIGDATA Kabupaten Situbondo',
+        'banner': 'img/home.jpg',
+        'nav': [
+            ['/', 'Home'],
+            ['/dashboard', 'Dashboard'],
+            ['/about', 'About'],
+        ]
+    }
+    return render(request,'about.html', context)

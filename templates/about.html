@@ -18,6 +18,8 @@
     <h1>{{ header }}</h1>
     <p>build use Django Framework</p>
     <ul>
-        <li><a href="/">Index</a></li>
+    {% for link,nama in nav %}
+        <li><a href="{{link}}">{{ nama }}</a></li>
+    {% endfor %}
     </ul>
 {% endblock %}

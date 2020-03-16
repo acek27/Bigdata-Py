@@ -21,9 +21,11 @@
         <h6>{{ post.alamat }}</h6>
         <p>{{ post.body }}</p>
         <p>{{ post.waktu_posting }}</p>
+{#        <p>{{ input }}</p>#}
     {% endfor %}
 
     <ul>
-        <li><a href="/">Index</a></li>
+        <li><a href="{% url 'index' %}">Index</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
     </ul>
 {% endblock %}

@@ -8,5 +8,6 @@ def dashboard(request):
         'judul': 'Dashboard',
         'header': 'Selamat Datang di Dashboard BIGDATA Kabupaten Situbondo',
         'Post': posts,
+        # 'input': input['input']
     }
     return render(request, 'dashboard.html', context)
