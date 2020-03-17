@@ -1,10 +1,11 @@
 from django import forms
+from django.conf import settings
 
 
 class DataForm(forms.Form):
-    nama_lengkap = forms.CharField(
+    nama = forms.CharField(
         label='Nama Lengkap',
-        max_length=20,
+        max_length=25,
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
@@ -31,13 +32,16 @@ class DataForm(forms.Form):
         )
     )
     tanggal_lahir = forms.DateField(
-        widget=forms.SelectDateWidget(
+        localize=True,
+        widget=forms.DateInput(
+            format='Y-m-d',
             attrs={
-                'class': 'form-control col-sm-2',
+                'class': 'form-control datepicker',
             },
-            years=range(1945, 2019, 1),
-        )
+        ),
+        input_formats=('Y-m-d',)
     )
+
     alamat = forms.CharField(
         widget=forms.Textarea(
             {
