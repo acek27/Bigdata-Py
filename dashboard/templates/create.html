@@ -29,6 +29,7 @@
             <div class="card-header">
                 <h3 class="card-title">Quick Example</h3>
             </div>
+            <p>{{ error }}</p>
             <!-- /.card-header -->
             <!-- form start -->
             <form role="form" method="post">
@@ -36,7 +37,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         {{ data.nama.label_tag }}
-                        {{ data.nama}}
+                        {{ data.nama }}
                     </div>
 
                     <div class="form-group">
@@ -49,7 +50,7 @@
                             {{ data.tanggal_lahir }}
                         </div>
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         {{ data.jenis_kelamin.label_tag }}
                         {% for component in data.jenis_kelamin %}
                             <div class="custom-control custom-radio">

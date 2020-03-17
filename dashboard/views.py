@@ -15,43 +15,27 @@ def index(request):
 
 
 def create(request):
-    data = DataForm()
+    data = DataForm(request.POST or None)
+    error = None
     if request.method == 'POST':
-        Post.objects.create(
-            nama=request.POST.get('nama'),
-            jenis_kelamin=request.POST.get('jenis_kelamin'),
-            tempat_lahir=request.POST.get('tempat_lahir'),
-            tanggal_lahir=request.POST.get('tanggal_lahir'),
-            email=request.POST.get('email'),
-            alamat=request.POST.get('alamat'),
-            hp=request.POST.get('hp'),
-        )
-        return HttpResponseRedirect("/dashboard/")
+        if data.is_valid():
+            Post.objects.create(
+                nama=data.cleaned_data.get('nama'),
+                jenis_kelamin=data.cleaned_data.get('jenis_kelamin'),
+                tempat_lahir=data.cleaned_data.get('tempat_lahir'),
+                tanggal_lahir=data.cleaned_data.get('tanggal_lahir'),
+                email=data.cleaned_data.get('email'),
+                alamat=data.cleaned_data.get('alamat'),
+                hp=data.cleaned_data.get('hp'),
+            )
+            return HttpResponseRedirect("/dashboard/")
+        else:
+            error = data.errors
 
     context = {
         'judul': 'Biodata User',
         'header': 'Pengisian Form Biodata User',
         'data': data,
-    }
-    return render(request, 'create.html', context)
-
-def create(request):
-    data = DataForm()
-    if request.method == 'POST':
-        Post.objects.create(
-            nama=request.POST.get('nama'),
-            jenis_kelamin=request.POST.get('jenis_kelamin'),
-            tempat_lahir=request.POST.get('tempat_lahir'),
-            tanggal_lahir=request.POST.get('tanggal_lahir'),
-            email=request.POST.get('email'),
-            alamat=request.POST.get('alamat'),
-            hp=request.POST.get('hp'),
-        )
-        return HttpResponseRedirect("/dashboard/")
-
-    context = {
-        'judul': 'Biodata User',
-        'header': 'Pengisian Form Biodata User',
-        'data': data,
+        'error': error
     }
     return render(request, 'create.html', context)
