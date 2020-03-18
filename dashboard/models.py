@@ -5,7 +5,14 @@ from django.db import models
 
 class Post(models.Model):
     nama = models.CharField(max_length=255)
-    jenis_kelamin = models.SmallIntegerField()
+    list = (
+        ('1', 'Laki-laki'),
+        ('2', 'Perempuan'),
+    )
+    jenis_kelamin = models.SmallIntegerField(
+        choices= list,
+        default=1,
+    )
     tempat_lahir = models.CharField(max_length=255)
     tanggal_lahir = models.DateField()
     email = models.EmailField(default='email@gmail.com')

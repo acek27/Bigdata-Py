@@ -19,15 +19,7 @@ def create(request):
     error = None
     if request.method == 'POST':
         if data.is_valid():
-            Post.objects.create(
-                nama=data.cleaned_data.get('nama'),
-                jenis_kelamin=data.cleaned_data.get('jenis_kelamin'),
-                tempat_lahir=data.cleaned_data.get('tempat_lahir'),
-                tanggal_lahir=data.cleaned_data.get('tanggal_lahir'),
-                email=data.cleaned_data.get('email'),
-                alamat=data.cleaned_data.get('alamat'),
-                hp=data.cleaned_data.get('hp'),
-            )
+            data.save()
             return HttpResponseRedirect("/dashboard/")
         else:
             error = data.errors
