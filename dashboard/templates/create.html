@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.1/datepicker.min.css">
 {% endblock %}
 
 {% block header %}
@@ -84,11 +83,13 @@
     </div>
 {% endblock %}
 {% block js %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.1/datepicker.min.js"></script>
     <script>
         $(function () {
             $(".datepicker").datepicker({
-                format: 'yyyy-mm-dd'
+                format: 'yyyy-mm-dd',
+                autoclose: !0,
+                todayHighlight: !0,
             });
         });
     </script>
